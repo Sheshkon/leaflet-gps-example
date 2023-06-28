@@ -63,4 +63,17 @@ function error(err) {
     }
 }
 
+var polygonCoordinates = []; // Массив для хранения координат полигона
 
+var polygonLayer = L.polygon([], { color: 'red' }).addTo(map); // Пустой слой полигона
+
+// Функция обработки клика по карте
+function handleMapClick(e) {
+    var latlng = e.latlng;
+    polygonCoordinates.push(latlng); // Добавляем координату в массив
+
+    polygonLayer.setLatLngs(polygonCoordinates); // Обновляем координаты полигона
+}
+
+// Добавляем обработчик клика на карту
+map.on('click', handleMapClick);
