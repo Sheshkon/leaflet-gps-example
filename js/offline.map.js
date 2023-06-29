@@ -15,7 +15,6 @@ L.tileLayer('assets/Minsk/{z}/{x}/{y}.png', {
 }).addTo(offlineMap);
 // Sets map data source and associates with map
 
-
 setTimeout(()=> {
         ({markerOffline, circleOffline, zoomedOffline} = setCoords(offlineMap, markerOffline, circleOffline, zoomedOffline))
     }
