@@ -1,9 +1,12 @@
-
 #maps {
     display: flex;
     height: 80vh;
     justify-content: space-around;
+}
 
+#buttons {
+    display: flex;
+    justify-content: space-around;
 }
 
 #offline-map {
@@ -11,7 +14,24 @@
     width: 45%;
 }
 
-#online-map{
+#online-map {
     border: 5px black solid;
     width: 45%;
+}
+
+#offline-map-buttons,
+#online-map-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+#offline-map-buttons div,
+#online-map-buttons div {
+    margin-bottom: 5px;
+}
+
+#offline-map-buttons button,
+#online-map-buttons button {
+    margin-right: 5px;
 }
