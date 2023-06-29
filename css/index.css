@@ -1,4 +1,17 @@
-#map {
+
+#maps {
+    display: flex;
     height: 80vh;
+    justify-content: space-around;
+
+}
+
+#offline-map {
     border: 5px black solid;
+    width: 45%;
+}
+
+#online-map{
+    border: 5px black solid;
+    width: 45%;
 }

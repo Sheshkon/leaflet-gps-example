@@ -13,9 +13,15 @@
 
 </head>
 <body>
-<div id="map"></div>
+<div id="maps">
+    <div id="offline-map"></div>
+    <div id="online-map"></div>
+</div>
 <div id="output"></div>
 
-<script type="text/javascript" src="js/index.js"></script>
+<script type="module" src="js/utils/gps.js"></script>
+<script type="module" src="js/utils/utils.js"></script>
+<script type="module" src="js/online.map.js"></script>
+<script type="module" src="js/offline.map.js"></script>
 </body>
 </html>
