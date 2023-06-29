@@ -10,12 +10,12 @@ export function setCoords(map, marker, circle, zoomed){
     // Removes any existing marker and circle (new ones about to be set)
 
     marker = L.marker([coords.lat, coords.lng]).addTo(map);
-    //circle = L.circle([coords.lat, coords.lng], { radius: coords.accuracy }).addTo(map);
+    circle = L.circle([coords.lat, coords.lng], { radius: coords.accuracy }).addTo(map);
     // Adds marker to the map and a circle for accuracy
 
-    /*if (!zoomed) {
+    if (!zoomed) {
         zoomed = map.fitBounds(circle.getBounds());
-    }*/
+    }
     // Set zoom to boundaries of accuracy circle
 
     map.setView([coords.lat, coords.lng]);

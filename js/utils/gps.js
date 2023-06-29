@@ -31,6 +31,7 @@ function error(err) {
 
 // Fires success function immediately and when user position changes
 function success(pos) {
+    console.log("gps changed")
     coords.lat = pos.coords.latitude;
     coords.lng = pos.coords.longitude;
     coords.accuracy = pos.coords.accuracy; // Accuracy in metres

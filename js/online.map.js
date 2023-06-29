@@ -16,11 +16,11 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© OpenStreetMap'
 }).addTo(onlineMap);
 
-/*setTimeout(()=> {
+setTimeout(()=> {
         ({markerOffline: markerOnline, circleOffline: circleOnline, zoomedOnline} =
             setCoords(onlineMap, markerOnline, circleOnline, zoomedOnline))
     }
-    ,1000);*/
+    ,1000);
 
 initializeButtons(onlineMap,
     'createOnlinePolygonBtn',
