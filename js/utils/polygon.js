@@ -7,12 +7,14 @@ export function initializeButtons(map, createBtnId, doneBtnId, clearBtnId, polyg
     let polygonCoordinates = [];
     let polygons = [];
 
+    doneButton.disabled = true;
+
     createButton.addEventListener('click', function() {
         creatingPolygon = true;
         polygonCoordinates = [];
         polygonLayer.setLatLngs(polygonCoordinates);
-        createButton.style.backgroundColor = "green";
-        doneButton.style.backgroundColor = "red";
+        doneButton.disabled = false;
+        createButton.disabled = true;
     });
 
     doneButton.addEventListener('click', function() {
@@ -21,23 +23,32 @@ export function initializeButtons(map, createBtnId, doneBtnId, clearBtnId, polyg
             if (polygonCoordinates.length > 2) {
                 const polygon = L.polygon(polygonCoordinates, { color: 'green' }).addTo(map);
                 polygons.push(polygon);
+                doneButton.disabled = true;
+                createButton.disabled = false;
+            }
+            else if (polygonCoordinates.length === 0)
+            {
+                doneButton.disabled = true;
+                createButton.disabled = false;
             }
         }
     });
 
     clearButton.addEventListener('click', function() {
-        if (polygons.length > 0) {
-            polygons.forEach(polygon => {
-                map.removeLayer(polygon);
-            });
-            polygons = [];
-        }
         if (creatingPolygon) {
-            map.removeLayer(polygonLayer);
+            /*map.removeLayer(polygonLayer);*/
             creatingPolygon = false;
             polygonCoordinates = [];
-            createButton.style.backgroundColor = "";
-            doneButton.style.backgroundColor = "";
+            doneButton.disabled = true;
+            createButton.disabled = false;
+            polygonCoordinates = [];
+            polygonLayer.setLatLngs(polygonCoordinates);
+        }
+        else if (polygons.length > 0) {
+            map.removeLayer( polygons[polygons.length-1]);
+            polygons.pop();
+            polygonCoordinates = [];
+            polygonLayer.setLatLngs(polygonCoordinates);
         }
     });
 
