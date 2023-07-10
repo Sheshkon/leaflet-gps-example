@@ -12,7 +12,6 @@ offlineMap.setView([53.893009, 27.567444], 13);
 // Sets initial coordinates and zoom level
 
 L.tileLayer('assets/Minsk/{z}/{x}/{y}.png', {
-    tms: true,
     attribution: '© OpenStreetMap'
 }).addTo(offlineMap);
 // Sets map data source and associates with map
