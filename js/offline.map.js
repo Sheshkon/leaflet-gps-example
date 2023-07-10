@@ -1,5 +1,6 @@
 import {setCoords} from './utils/utils.js';
 import {initializeButtons} from './utils/polygon.js';
+import {handleFileSelect} from './utils/geoJson.js'
 
 let markerOffline, circleOffline, zoomedOffline;
 
@@ -11,7 +12,7 @@ offlineMap.setView([53.893009, 27.567444], 13);
 // Sets initial coordinates and zoom level
 
 L.tileLayer('assets/Minsk/{z}/{x}/{y}.png', {
-    maxZoom: 15,
+    tms: true,
     attribution: '© OpenStreetMap'
 }).addTo(offlineMap);
 // Sets map data source and associates with map
@@ -29,3 +30,6 @@ initializeButtons(offlineMap,
     'clearOfflinePolygonBtn',
     polygonLayer);
 
+document.getElementById('offlineGeoJsonFile').addEventListener('change',function (evt){
+    handleFileSelect(evt, offlineMap);
+}, false);

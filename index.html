@@ -20,17 +20,25 @@
         <button id="createOfflinePolygonBtn">Create</button>
         <button id="doneOfflinePolygonBtn">Done</button>
         <button id="clearOfflinePolygonBtn">Clear</button>
+        <input type="file" id="offlineGeoJsonFile" accept=".geojson" />
     </div>
+
+    <div id="load-geo-json">
+
+    </div>
+
     <div id="online-map-buttons">
         <button id="createOnlinePolygonBtn">Create</button>
         <button id="doneOnlinePolygonBtn">Done</button>
         <button id="clearOnlinePolygonBtn">Clear</button>
+        <input type="file" id="onlineGeoJsonFile" accept=".geojson" />
     </div>
 </div>
 <div id="output"></div>
 
 <script type="module" src="js/utils/gps.js"></script>
 <script type="module" src="js/utils/utils.js"></script>
+<script type="module" src="js/utils/geoJson.js"></script>
 <script type="module" src="js/online.map.js"></script>
 <script type="module" src="js/offline.map.js"></script>
 </body>

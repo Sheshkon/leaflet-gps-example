@@ -1,5 +1,6 @@
 import {setCoords} from "./utils/utils.js";
 import {initializeButtons} from './utils/polygon.js';
+import {handleFileSelect} from './utils/geoJson.js'
 
 let markerOnline, circleOnline, zoomedOnline
 
@@ -16,6 +17,8 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© OpenStreetMap'
 }).addTo(onlineMap);
 
+
+
 setTimeout(()=> {
         ({markerOffline: markerOnline, circleOffline: circleOnline, zoomedOnline} =
             setCoords(onlineMap, markerOnline, circleOnline, zoomedOnline))
@@ -27,3 +30,7 @@ initializeButtons(onlineMap,
     'doneOnlinePolygonBtn',
     'clearOnlinePolygonBtn',
     polygonLayer);
+
+document.getElementById('onlineGeoJsonFile').addEventListener('change',function (evt){
+    handleFileSelect(evt, onlineMap);
+}, false);
